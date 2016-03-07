@@ -8,12 +8,12 @@
 <body>
 	<div id="map" style="width: 1000px; height: 1200px"></div>
 	<script>
-		var map = L.map('map').setView([37.50, -79.88], 14);
+		var map = L.map('map').setView([37.50, -79.88], 16);
 		
 		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken} ', {
 		attribution: 'Basemap from <a href="http://mapbox.com">Mapbox</a>,   ' +
 		'design by <a href="http://co.botetourt.va.gov>Botetourt County</a>. ',
-		maxZoom: 16,
+		maxZoom: 18,
 		minZoom: 12,
 		id: 'beattyre.pbhimakk',
 		accessToken: 'pk.eyJ1IjoiYmVhdHR5cmUiLCJhIjoiMjFmNWViOGFhMmJmZjZjOGZlODU3MDM1MzNlZmM5N2UifQ.OTWiU0TYOnTvH6H6DSngTg'
