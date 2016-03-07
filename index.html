@@ -1,22 +1,23 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Historic Walking Fincastle</title>
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css"/>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
 	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-	<style>
-	#map { width: 900px; height: 600px; }
-        </style>
 </head>
 <body>
-	<div id="map"></div>
+	<div id="map" style="width: 1000px; height: 1200px"></div>
 	<script>
-	// Create map object
-	var map = L.map('map').setView([37.50, -79.88], 13);
+		var map = L.map('map').setView([37.50, -79.88], 14);
 		
-	// Add tile to map object
-	L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png', {
-		attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data From <a href="http://co.botetourt.va.us">Botetourt County</a>,'
-	}).addTo(map);
+		L.tileLayer('https://api.tiles.mapbox.com/v1/{id}/{z}/{x}/{y}.png?access_token={accessToken} ', {
+		attribution: 'Basemap from <a href="http://mapbox.com">Mapbox</a>, +
+		design by <a href="http://co.botetourt.va.gov>Botetourt County</a>.',
+		maxZoom: 16,
+		minZoom: 12,
+		id: 'beattyre.pbhimakk',
+		accessToken: 'pk.eyJ1IjoiYmVhdHR5cmUiLCJhIjoiMjFmNWViOGFhMmJmZjZjOGZlODU3MDM1MzNlZmM5N2UifQ.OTWiU0TYOnTvH6H6DSngTg'
+		}).addTo(map);
 	</script>
 </body>
 </html>
