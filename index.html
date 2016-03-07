@@ -2,11 +2,11 @@
 <head>
 	<title>Historic Walking Fincastle</title>
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css"/>
-    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-    <style>
+	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+	<style>
+	
     #map {
     height: 100%;
-    
     }
     </style>
 </head>
@@ -14,14 +14,14 @@
 	<div id="map"></div>
 	<script>
 	// Create map object
-		var map = L.map('map').setView([37.50, -79.88], 13);
+	var map = L.map('map').setView([37.50, -79.88], 13);
 		
 	// Add tile to map object
-		L.tileLayer('http://tils.mapc.org/basemap/{z}/{x}/{y}.png', {
-			attribution: 'Tiles by <a href="http://mapbox.com">Mapbox</a>, Data From <a href="http://co.botetourt.va.us">Botetourt County</a>,'
-			maxZoom: 16,
-			minZoom: 12,
-		}).addTo(map);
+	L.tileLayer('http://tils.mapc.org/basemap/{z}/{x}/{y}.png', {
+		attribution: 'Tiles by <a href="http://mapbox.com">Mapbox</a>, Data From <a href="http://co.botetourt.va.us">Botetourt County</a>,'
+		maxZoom: 16,
+		minZoom: 12,
+	}).addTo(map);
 	</script>
 </body>
 </html>
