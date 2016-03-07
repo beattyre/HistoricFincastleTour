@@ -1,25 +1,30 @@
+
 <html>
 <head>
-	<title>Historic Walking Fincastle</title>
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-    <style>
-    #map {
-    height: 100%;
-    
-    }
-    </style>
+  <title>A Leaflet map!</title>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <style>
+    #map{ width: 900px; height: 500px; }
+  </style>
 </head>
 <body>
-	<div id="map"></div>
-	<script>
-		var map = L.map('map').setView([37.50, -79.88], 13);
-		
-		L.tileLayer("http://api.tiles.mapbox.com/v1/beattyre.pbhimakk/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYmVhdHR5cmUiLCJhIjoiMjFmNWViOGFhMmJmZjZjOGZlODU3MDM1MzNlZmM5N2UifQ.OTWiU0TYOnTvH6H6DSngTg", {
-			attribution: 'Tiles by <a href="http://mapbox.com">Mapbox</a>, Data From <a href="http://co.botetourt.va.us">Botetourt County</a>,'
-			maxZoom: 16,
-			minZoom: 12,
-		}).addTo(map);
-	</script>
+
+  <div id="map"></div>
+
+  <script>
+
+  // initialize the map
+  var map = L.map('map').setView([42.35, -71.08], 13);
+
+  // load a tile layer
+  L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
+    {
+      attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
+      maxZoom: 17,
+      minZoom: 9
+    }).addTo(map);
+
+  </script>
 </body>
 </html>
