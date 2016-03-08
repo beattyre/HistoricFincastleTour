@@ -21,4 +21,4 @@ function addDataToMap(data, map) {
 	dataLayer.addTo(map);
 }
 
-$.getJSON("https://github.com/beattyre/WebMapTest/blob/gh-pages/TestPoints.geojson", function(data) { addDataToMap(data,map); });
+$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", function(data) { addDataToMap(data,map); });
