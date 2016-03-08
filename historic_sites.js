@@ -1,5 +1,5 @@
-// Create map variable
-var map = L.map('map').setView([37.499, -79.874], 14);
+	// Create map variable
+var map = L.map('map').setView([37.499, -79.874], 16);
 
 // Add basemap from Mapbox
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken} ', {
@@ -10,5 +10,4 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   id: 'beattyre.pbhimakk',
   accessToken: 'pk.eyJ1IjoiYmVhdHR5cmUiLCJhIjoiMjFmNWViOGFhMmJmZjZjOGZlODU3MDM1MzNlZmM5N2UifQ.OTWiU0TYOnTvH6H6DSngTg'
 	}).addTo(map);
-
 // Start GeoJSON
