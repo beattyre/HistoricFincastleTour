@@ -12,7 +12,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 	}).addTo(map);
 // Start GeoJSON
 function addDataToMap(data, map) {
-	var dataLayer = L.geoJSON(data, {
+	var dataLayer = L.geoJson(data, {
 		onEachFeature: function(feature, layer) {
 			var popupText = "Stop Number: " + feature.properties.Stop_No
 			+ "<br>Location Name: " +feature.properties.name;
