@@ -14,7 +14,11 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 function addDataToMap(data, map) {
 	var dataLayer = L.geoJSON(data, {
 		onEachFeature: function(function, layer) {
-			
-		}
-	})
+			var popupText = "Stop Number: " + feature.properties.Stop_No
+			+ "<br>Location Name: " +feature.properties.name;
+			layer.bindPopup(popupText); }
+		});
+	dataLayer.addTo(map);
 }
+
+$.getJSON("https://github.com/beattyre/WebMapTest/blob/gh-pages/TestPoints.geojson", function(data) { addDataToMap(data,map); });
