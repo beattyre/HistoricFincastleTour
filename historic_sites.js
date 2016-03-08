@@ -14,8 +14,8 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 function addDataToMap(data, map) {
 	var dataLayer = L.geoJson(data, {
 		onEachFeature: function(feature, layer) {
-			var popupText = "Stop Number: " + feature.properties.Stop_No
-			+ "<br>Location Name: " +feature.properties.name;
+			var popupText = "<str>Stop Number: </str>" + feature.properties.Stop_No
+			+ "<br><str>Location Name: </str>" +feature.properties.name;
 			layer.bindPopup(popupText); }
 		});
 	dataLayer.addTo(map);
