@@ -11,3 +11,10 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   accessToken: 'pk.eyJ1IjoiYmVhdHR5cmUiLCJhIjoiMjFmNWViOGFhMmJmZjZjOGZlODU3MDM1MzNlZmM5N2UifQ.OTWiU0TYOnTvH6H6DSngTg'
 	}).addTo(map);
 // Start GeoJSON
+function addDataToMap(data, map) {
+	var dataLayer = L.geoJSON(data, {
+		onEachFeature: function(function, layer) {
+			
+		}
+	})
+}
