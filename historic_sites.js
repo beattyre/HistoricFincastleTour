@@ -20,7 +20,5 @@ function addDataToMap(data, map) {
 		});
 	dataLayer.addTo(map);
 }
-$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TownsTest.geojson", function(townData){
-	L.geoJson(townData).addTo(map); }); 
 
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", function(data) { addDataToMap(data,map); });
