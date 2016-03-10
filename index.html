@@ -48,17 +48,17 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 
 // Start GeoJSON
-function addDataToMap(data, map) {
-	var dataLayer = L.geoJson(data, {
-		onEachFeature: function(feature, layer) {
-			var popupText = "<b>Stop Number: </b>" + feature.properties.Stop_No
-			+ "<br><b>Location Name: </b>" +feature.properties.name;
-			layer.bindPopup(popupText); }
-		});
-	dataLayer.addTo(map);
-}
+// function addDataToMap(data, map) {
+//	var dataLayer = L.geoJson(data, {
+//		onEachFeature: function(feature, layer) {
+//			var popupText = "<b>Stop Number: </b>" + feature.properties.Stop_No
+//			+ "<br><b>Location Name: </b>" +feature.properties.name;
+//			layer.bindPopup(popupText); }
+//		});
+//	dataLayer.addTo(map);
+// }
 
-$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", function(data) { L.geoJson(data).addTo(map); });
+// $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", function(data) { L.geoJson(data).addTo(map); });
 
 </script>
 	
