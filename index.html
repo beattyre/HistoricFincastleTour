@@ -53,7 +53,7 @@ function addDataToMap(data, map) {
 	dataLayer.addTo(map);
 }
 
-$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", function(data) { addDataToMap(data,map); });
+$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", function(data) { L.geoJson(data).addTo(map); });
 
 </script>
 	
