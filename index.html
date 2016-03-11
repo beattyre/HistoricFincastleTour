@@ -36,15 +36,10 @@
 	var map = L.map('map').setView([37.498515, -79.876458], 17);
 
 	// Add basemap from Mapbox
-	L.tileLayer('https://a.tiles.mapbox.com/v4/beattyre.pbhimakk/page.html?access_token=pk.eyJ1IjoiYmVhdHR5cmUiLCJhIjoiMjFmNWViOGFhMmJmZjZjOGZlODU3MDM1MzNlZmM5N2UifQ.OTWiU0TYOnTvH6H6DSngTg#17/37.49894/-79.87534', 
-		{
-		 attribution: 'Basemap from <a href="http://mapbox.com">Mapbox</a>, ' +
-  		'design by <a href="http://co.botetourt.va.gov">Botetourt County</a>. ',
-		 maxZoom: 20,
-		 minZoom: 15,
-		 // id: 'beattyre.pbhimakk',
- 		// accessToken: 'pk.eyJ1IjoiYmVhdHR5cmUiLCJhIjoiMjFmNWViOGFhMmJmZjZjOGZlODU3MDM1MzNlZmM5N2UifQ.OTWiU0TYOnTvH6H6DSngTg'
-		}).addTo(map);
+var OpenStreetMap_HOT = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>'
+});.addTo(map);
 
 
 		// Start GeoJSON
