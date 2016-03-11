@@ -104,7 +104,7 @@ var map;
 function initmap() {
   map = new L.map('map');
   // Add basemap from OSM
-  var osmHot = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  var osmHot = 'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png';
   var osmAttributes = 'Map Data @ <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>';
   var osm = new L.tileLayer(osmHot, {
     minZoom: 12,
