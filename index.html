@@ -32,6 +32,9 @@
 	<div id="map"></div>
 
 	<script>
+	
+var map;
+
 function initmap(){
 map = new L.Map('map');
 
@@ -42,6 +45,7 @@ var osm = new L.TileLayer(OpenStreetMap_HOT, {minZoom: 12, maxZoom: 20, attribut
 map.addLayer(osm);
 };
 
+initmap();
 		// Start GeoJSON
 		// function addDataToMap(data, map) {
 		//	var dataLayer = L.geoJson(data, {
