@@ -99,22 +99,14 @@ initmap();
   </div>
 <script>
 
-var map;
-
-function initmap() {
-  map = new L.map('map');
+var map = new L.map('map').setView(new L.LatLng(37.499, -79.875), 17);
   // Add basemap from OSM
   var osmAttributes = 'Map Data @ <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>';
   var osm = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     minZoom: 12,
     maxZoom: 20,
     attribution: osmAttributes
-  });
-
-  map.setView(new L.LatLng(37.499, -79.875), 17);
-  map.addLayer(osm);
-};
-initmap();
+  }).addTo(map);
 
 // Start GeoJSON
 function addDataToMap(data, map) {
