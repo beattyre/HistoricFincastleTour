@@ -32,15 +32,15 @@
 	<div id="map"></div>
 
 	<script>
-	// Create map variable
-	var map = L.map('map').setView([37.498515, -79.876458], 17);
+function initmap(){
+map = new L.Map('map');
 
 	// Add basemap from Mapbox
-var OpenStreetMap_HOT = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-	maxZoom: 19,
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>'
-}).addTo(map);
-
+var OpenStreetMap_HOT = 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
+var osmAttributes = 'Map Data @ <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>';
+var osm = new L.TileLayer(OpenStreetMap_HOT, {minZoom: 12, maxZoom: 20, attribution: osmAttributes});
+map.addLayer(osm);
+};
 
 		// Start GeoJSON
 		// function addDataToMap(data, map) {
