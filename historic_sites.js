@@ -24,3 +24,5 @@ $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", 
   }
   }).addTo(map);
 });
+
+L.control.zoom(position: "topright");
