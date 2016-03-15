@@ -1,16 +1,20 @@
 #title-bar {
   opacity: .8;
   background-color: rgb(66, 36, 12);
-  border: 3px solid rgb(190, 177, 130);
+  border: 5px solid rgb(190, 177, 130);
+  margin-bottom: 10px;
 }
-
-.map-height {
-  height: 100%;
+.row-height{
+  display: table;
+  height: 700px;
+  table-layout: fixed;
+}
+.map-border {
   border: 5px solid rgb(190, 177, 130);
 }
 
-h3 {
+h2 {
   color: rgb(190, 177, 130);
   font-family: 'Montserrat', sans-serif;
-  text-align: center;
+  text-align: left;
 }
