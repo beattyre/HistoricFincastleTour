@@ -7,7 +7,7 @@ function initmap() {
   var osmAttributes = 'Map Data @ <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>';
   var osm = new L.tileLayer(osmHot, {
     minZoom: 15,
-    maxZoom: 19,
+    maxZoom: 18,
     attribution: osmAttributes
   });
 
@@ -16,20 +16,11 @@ function initmap() {
 };
 initmap();
 
-
-
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", function(data) {
-  L.geoJson(data).addTo(map);
+  L.geoJson(data, {
+  onEachFeature: function(feature, layer){
+    layer.bindPopup("<b>Stop Number: </b>" + feature.properties.Stop_No +
+        "<br><b>Location Name: </b>" + feature.properties.name)
+  }
+  }).addTo(map);
 });
-
-// Start GeoJSON
-function addDataToMap(data, map) {
-  var dataLayer = L.geoJson(data, {
-    onEachFeature: function(feature, layer) {
-      var popupText = "<b>Stop Number: </b>" + feature.properties.Stop_No +
-        "<br><b>Location Name: </b>" + feature.properties.name;
-      layer.bindPopup(popupText);
-    }
-  });
-  dataLayer.addTo(map);
-};
