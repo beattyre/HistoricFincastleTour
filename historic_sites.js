@@ -11,7 +11,7 @@ function initmap() {
     attribution: osmAttributes
   });
 
-  map.setView(new L.LatLng(37.498442, -79.87-6030), 16);
+  map.setView(new L.LatLng(37.498442, -79.876030), 16);
   map.addLayer(osm);
 };
 initmap();
