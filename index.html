@@ -1,129 +1,31 @@
 <!DOCTYPE html>
-<!-- <html>
+
+<html lang="en">
 <head>
-	<title>Walking Tour of Historic Fincastle</title>
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" /> 
-	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script> 
-	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script> 
-	<style>
-		.sidebar {
-			position: fixed;
-			height: 100%;
-			width: 20%;
-			left: 0;
-			opacity: .75;
-			background-color: rgb(66, 36, 12);
-			border: 3px solid rgb(190,177,130);
-		}
-
-		h3 {
-			color: rgb(190, 177, 130);
-			font-family: Helvetica, Monospace;
-			text-align: center;
-		}
-	</style>
-</head>
-<body>
-	<div class="sidebar">
-		<div>
-		<h3>WALKING TOUR <BR> OF <BR>HISTORIC FINCASTLE</h3>
-		</div>
-	</div>	
-	<div id="map"></div>
-
-	<script>
-	
-var map;
-
-function initmap(){
-map = new L.Map('map');
-
-	// Add basemap from Mapbox
-var OpenStreetMap_HOT = 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
-var osmAttributes = 'Map Data @ <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>';
-var osm = new L.TileLayer(OpenStreetMap_HOT, {minZoom: 12, maxZoom: 20, attribution: osmAttributes});
-map.addLayer(osm);
-};
-
-initmap();
-		// Start GeoJSON
-		// function addDataToMap(data, map) {
-		//	var dataLayer = L.geoJson(data, {
-		//		onEachFeature: function(feature, layer) {
-		//			var popupText = "<b>Stop Number: </b>" + feature.properties.Stop_No
-		//			+ "<br><b>Location Name: </b>" +feature.properties.name;
-		//			layer.bindPopup(popupText); }
-		//		});
-		//	dataLayer.addTo(map);
-		// }
-		
-		// $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", function(data) { L.geoJson(data).addTo(map); });
-
-	</script>
-	
-
-</body>
-</html> -->
-
-<html>
- <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Walking Tour of Historic Fincastle</title>
-  <link rel="styelsheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" /> 
-  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-  <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script> 
+ 
+ <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+ <link href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" rel="stylesheet" type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel='stylesheet' type="text/css">
 </head>
-<style>
-	.sidebar {
-			position: fixed;
-			height: 100%;
-			width: 20%;
-			left: 0;
-			opacity: .75;
-			background-color: rgb(66, 36, 12);
-			border: 3px solid rgb(190,177,130);
-		}
 
-		h3 {
-			color: rgb(190, 177, 130);
-			font-family: Helvetica, Monospace;
-			text-align: center;
-		}
-</style>
 <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 jumbotron" id="sidebar">
+        <h3>WALKING TOUR <BR> OF <BR>HISTORIC FINCASTLE</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div id="map" class="col-sm-12 map-height"></div>
+      <script src="https://rawgit.com/beattyre/WebMapTest/gh-pages/historic_sites.js"></script>
+    </div>
+  </div>
 
-<div class="container-fluid">
-  <div class="row block">
-  	<div class="col-md-4 sidebar"><h3>WALKING TOUR <BR> OF <BR>HISTORIC FINCASTLE</h3></div>
-  	<div class="col-md-8" id="map" style="height: 1000px: width: 1100px"></div>
-  </div>	
-</div>
-<script>
-
-var map = L.map('map').setView([37.499, -79.875], 14);
-  // Add basemap from OSM
-  var osmAttributes = 'Map Data @ <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>';
-  var osm = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    minZoom: 12,
-    maxZoom: 20,
-    attribution: osmAttributes
-  }).addTo(map);
-
-// Start GeoJSON
-function addDataToMap(data, map) {
-  var dataLayer = L.geoJson(data, {
-    onEachFeature: function(feature, layer) {
-      var popupText = "<b>Stop Number: </b>" + feature.properties.Stop_No +
-        "<br><b>Location Name: </b>" + feature.properties.name;
-      layer.bindPopup(popupText);
-    }
-  });
-  dataLayer.addTo(map);
-}
-
-$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", function(data) {
-  L.geoJson(data).addTo(map);
-});</script>
 </body>
 
 </html>
