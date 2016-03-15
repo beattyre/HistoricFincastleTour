@@ -17,7 +17,7 @@ function initmap() {
 initmap();
 
 
-$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", function(data) {
+$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", function(sitesData) {
   L.geoJson(sitesData).addTo(map);
 });
 
