@@ -2,11 +2,18 @@
   opacity: .8;
   background-color: rgb(66, 36, 12);
   border: 5px solid rgb(190, 177, 130);
-  margin-bottom: 10px;
+  margin-bottom: 20px
+}
+
+#sidebar {
+  opacity: .8;
+  background-color: rgb(66, 36, 12);
+  border: 5px solid rgb(190, 177, 130);
+  height: 700px;  
+  border-radius: 5px;
 }
 .row-height{
   height: 700px;
-  width: 100%;
 }
 .map-border {
   border: 5px solid rgb(190, 177, 130);
