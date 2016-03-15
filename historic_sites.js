@@ -25,7 +25,7 @@ $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", 
   }).addTo(map);
 });
 
-var sidebar = L.control.sidebar('sidebar', {
+var sidebar = L.Control.Sidebar('sidebar', {
   position: 'right'
 });
 
