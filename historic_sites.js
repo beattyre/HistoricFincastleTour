@@ -6,12 +6,12 @@ function initmap() {
   var osmHot = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
   var osmAttributes = 'Map Data @ <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>';
   var osm = new L.tileLayer(osmHot, {
-    minZoom: 12,
-    maxZoom: 20,
+    minZoom: 15,
+    maxZoom: 19,
     attribution: osmAttributes
   });
 
-  map.setView(new L.LatLng(37.499, -79.875), 17);
+  map.setView(new L.LatLng(37.499, -79.875), 17.5);
   map.addLayer(osm);
 };
 initmap();
