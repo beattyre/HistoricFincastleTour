@@ -5,16 +5,17 @@
   margin-bottom: 10px;
 }
 .row-height{
-  display: table;
   height: 700px;
-  table-layout: fixed;
+  width: 100%;
 }
 .map-border {
   border: 5px solid rgb(190, 177, 130);
+  border-radius: 5px;
 }
 
 h2 {
   color: rgb(190, 177, 130);
   font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   text-align: left;
 }
