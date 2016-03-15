@@ -24,12 +24,3 @@ $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", 
   }
   }).addTo(map);
 });
-
-var sidebar = L.Control.Sidebar('sidebar', {
-  position: 'right'
-});
-
-map.addControl(sidebar);
-setTimeout(function(){
-  sidebar.show();
-}, 500);
