@@ -16,6 +16,7 @@ function initmap() {
 };
 initmap();
 
+
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", function(data) {
   L.geoJson(data, {
   onEachFeature: function(feature, layer){
@@ -24,3 +25,17 @@ $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", 
   }
   }).addTo(map);
 });
+var info = L.control();
+
+info.onAdd = function(map) {
+  this._div = L.DomUtil.create('div', 'info');
+  this.update();
+  return this._div;
+};
+
+info.update = function(props){
+  this._div.innterHTML = "<b>Stop Number: </b>" + (props.Stop_No +
+        "<br><b>Location Name: </b>" + props.name);
+};
+
+info.addTo(map);
