@@ -18,13 +18,36 @@ initmap();
 
 
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", function(data) {
-  L.geoJson(data, {
-  onEachFeature: function(feature, layer){
-    layer.bindPopup("<b>Stop Number: </b>" + feature.properties.Stop_No +
-        "<br><b>Location Name: </b>" + feature.properties.name)
-  }
-  }).addTo(map);
+  L.geoJson(sitesData).addTo(map);
 });
+
+function highlightFeature(e){
+  var layer = e.target;
+  layer.setStyle({
+    color: '#000',
+  });
+  info.update(layer.feature.properties);
+}
+
+function resetHighlight(e){
+  geojson.resetStyle(e.target);
+  info.update();
+}
+
+var geojson;
+
+function onEachFeature(feature, layer) {
+    layer.on({
+        click: highlightFeature,
+    });
+}
+
+geojson = L.geoJson(sitesData, {
+    style: style,
+    onEachFeature: onEachFeature
+}).addTo(map);
+
+
 var info = L.control();
 
 info.onAdd = function(map) {
