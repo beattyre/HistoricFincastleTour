@@ -1,19 +1,20 @@
 #title-bar {
   opacity: .8;
   background-color: rgb(66, 36, 12);
-  border: 5px solid rgb(190, 177, 130);
-  margin-bottom: 20px
+  margin-bottom: 0px;
 }
 
+p {
+  color: rgb(190,177,130)
+}
 #sidebar {
   opacity: .8;
   background-color: rgb(66, 36, 12);
-  border: 5px solid rgb(190, 177, 130);
-  height: 700px;  
-  border-radius: 5px;
+  height: 50em;
+  border: 5px solid rgb(190,177,130);
 }
 .row-height{
-  height: 700px;
+  height: 60em;
 }
 .map-border {
   border: 5px solid rgb(190, 177, 130);
@@ -25,4 +26,14 @@ h2 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   text-align: left;
+  font-size: 2.5em;
+}
+
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
 }
