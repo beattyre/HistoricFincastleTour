@@ -17,11 +17,12 @@ function initmap() {
 };
 initmap();
 
-$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", function(data) {
+$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites.geojson", function(data) {
   L.geoJson(data, {
     onEachFeature: function(feature, layer){
-     layer.bindPopup("<b>Stop Number: </b>" + feature.properties.Stop_No +
- "<br><b>Location Name: </b>" + feature.properties.name)
+     layer.bindPopup("<img src="feature.properties.IMG_URL"/><br><b>Stop Number: </b>" + feature.properties.Stop_No, +
+ "<br><b>Building Name: </b>" + feature.properties.name, +
+ "<br><b>Building History: </b>" +feature.properties.Desc)
 }
  }).addTo(map)});
 
