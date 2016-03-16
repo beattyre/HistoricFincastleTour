@@ -23,6 +23,6 @@ $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", 
      layer.bindPopup("<b>Stop Number: </b>" + feature.properties.Stop_No +
  "<br><b>Location Name: </b>" + feature.properties.name)
 }
- }).addTo(map);
+ }).addTo(map)});
 
 map.zoomControl.setPosition('bottomright');
