@@ -8,21 +8,17 @@ function initmap() {
   var osm = new L.tileLayer(osmHot, {
     minZoom: 15,
     maxZoom: 18,
-    attribution: osmAttributes
+    attribution: osmAttributes,
+    zoomControl: true
   });
 
-  map.setView(new L.LatLng(37.498442, -79.876030), 16);
+  map.setView(new L.LatLng(37.499, -79.875), 16);
   map.addLayer(osm);
 };
 initmap();
 
-$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", function(data) {
-  L.geoJson(data, {
-  onEachFeature: function(feature, layer){
-    layer.bindPopup("<b>Stop Number: </b>" + feature.properties.Stop_No +
-        "<br><b>Location Name: </b>" + feature.properties.name)
-  }
-  }).addTo(map);
+$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", function(sitesData) {
+  L.geoJson(sitesData).addTo(map);
 });
 
-L.control.zoom({position: "topright"});
+map.zoomControl.setPosition('bottomright');
