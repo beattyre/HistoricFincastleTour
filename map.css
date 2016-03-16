@@ -26,7 +26,7 @@ p {
 #sidebar {
   opacity: .8;
   background-color: rgb(66, 36, 12);
-  height: 100%;
+  height: 51.5em;
   width: 22em;
   position: absolute;
   z-index: 5000; }
