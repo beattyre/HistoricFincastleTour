@@ -1,58 +1,34 @@
 @media (max-width:990px) {
 .container {
   border: 2.5px solid rgb(190, 177, 130); }
-/*#title-bar {
-  opacity: .8;
-  background-color: rgb(66, 36, 12);
-  height: 150px;
-} */
-  
-  
-#footer {
-      width: 80%;
-      font-size: 18px;
-      position: absolute;
-      bottom: 0;
-      text-align: center;
-      font-weight: 700; 
-      color: rgb(118, 170, 194); } 
-#location-picture{
-  height: 90%;
-  width: 90%; }
-.sidebar-picture {
-  margin-top: 10px;
-  margin-bottom: 15px; }
-#header {
-  text-align: center;
-  color: rgb(118, 170, 194);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1em;
-  font-weight: 700; }
-p {
-  color: rgb(190,177,130);
-  margin: 8px, 2px, 8px, 2px;
-  font-size: .75em; }
 #sidebar {
   opacity: .8;
   background-color: rgb(66, 36, 12);
-  height: 100%;
-  width: 15em;
+  height: 95vmax;
+  width: 20vmax;
   position: absolute;
   z-index: 5000; }
-.row-height{
-  height: 100vmin; }
-h2 {
+  #location {
+  text-transform: capitalize;
   color: rgb(190, 177, 130);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
   text-align: left;
   font-size: 1em;
-  position: top;
-  margin-top: 20px; }
-
-#location {
-  text-align: center;
-  font-size: 1em; }}		
+  font-weight: 700; }		
+ #header {
+  text-transform: uppercase;
+  text-align: left;
+  color: rgb(118, 170, 194);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+  font-weight: 700; }
+#location-picture{
+  width: 100%; }
+p {
+  color: rgb(190,177,130);
+  font-size: 1em; }
+.row-height{
+  height: 95vmax;}
+}
 
 @media (min-width:990px) {
 .container {
@@ -74,17 +50,20 @@ h2 {
   margin-bottom: 30px; }
   
 #header {
-  text-align: center;
+  text-transform: uppercase;
+  text-align: left;
   color: rgb(118, 170, 194);
   font-family: 'Montserrat', sans-serif;
   font-size: 2vmax;
   font-weight: 700; }
   
 p {
+  font-family: 'Montserrat', sans-serif;
   color: rgb(190,177,130);
   margin: 15px, 10px, 15px, 5px;
-  padding: 10px 10px 10px 10px;
-  font-size: .9vmax; }
+  padding: 5px 5px 5px 5px;
+  font-size: 1vmax; 
+  font-weight: 400; }
   
 #sidebar {
   opacity: .8;
@@ -107,16 +86,11 @@ h2 {
   margin-top: 30px; }
 
 #location {
-  text-align: center;
-  font-size: 1vmax; }		
-#footer {
-      width: 80%;
-      font-size: 20px;
-      position: absolute;
-      bottom: 0;
-      text-align: center;
-      font-weight: 700;
-      color: rgb(118, 170, 194); } 
+  text-transform: capitalize;
+  font-family: 'Monterserrat', sans-serif;
+  font-weight: 700;
+  color: rgb(190, 177, 130);
+  text-align: left;
+  font-size: 1.25vmax; }		
 }
-
 
