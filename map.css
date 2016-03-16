@@ -6,6 +6,8 @@
   background-color: rgb(66, 36, 12);
   height: 150px;
 } */
+  
+  
 #footer {
       width: 80%;
       font-size: 18px;
@@ -33,12 +35,12 @@ p {
 #sidebar {
   opacity: .8;
   background-color: rgb(66, 36, 12);
-  height: 51.5em;
+  height: 100%;
   width: 15em;
   position: absolute;
   z-index: 5000; }
 .row-height{
-  height: 60em; }
+  height: 100vmin; }
 h2 {
   color: rgb(190, 177, 130);
   font-family: 'Montserrat', sans-serif;
@@ -80,19 +82,20 @@ h2 {
   
 p {
   color: rgb(190,177,130);
-  margin: 15px, 5px, 15px, 5px;
+  margin: 15px, 10px, 15px, 5px;
+  padding: 10px 10px 10px 10px;
   font-size: .9vmax; }
   
 #sidebar {
   opacity: .8;
   background-color: rgb(66, 36, 12);
-  height: 51.5em; 
+  height: 100%; 
   width: 20%;
   position: absolute;
   z-index: 5000; }
   
 .row-height{
-  height: 60em; }
+  height: 100vmin; }
   
 h2 {
   color: rgb(190, 177, 130);
@@ -115,3 +118,5 @@ h2 {
       font-weight: 700;
       color: rgb(118, 170, 194); } 
 }
+
+
