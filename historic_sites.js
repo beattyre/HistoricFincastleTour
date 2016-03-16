@@ -17,8 +17,12 @@ function initmap() {
 };
 initmap();
 
-$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", function(sitesData) {
-  L.geoJson(sitesData).addTo(map);
-});
+-$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TestPoints.geojson", function(data) {
+ -  L.geoJson(data, {
+ -  onEachFeature: function(feature, layer){
+ -    layer.bindPopup("<b>Stop Number: </b>" + feature.properties.Stop_No +
+ -        "<br><b>Location Name: </b>" + feature.properties.name)
+ -  }
+ -  }).addTo(map);
 
 map.zoomControl.setPosition('bottomright');
