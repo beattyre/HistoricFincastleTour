@@ -12,7 +12,7 @@ function initmap() {
     zoomControl: true
   });
 
-  map.setView(new L.LatLng(37.499, -79.875), 16);
+  map.setView(new L.LatLng(37.499, -79.878), 16);
   map.addLayer(osm);
 };
 initmap();
