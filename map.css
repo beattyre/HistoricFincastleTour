@@ -7,12 +7,13 @@
   height: 150px;
 } */
 #footer {
-      width: 8em;
-      font-size: 1.2em;
+      width: 80%;
+      font-size: 18px;
       position: absolute;
       bottom: 0;
       text-align: center;
-      font-weight: 700; } 
+      font-weight: 700; 
+      color: rgb(118, 170, 194); } 
 #location-picture{
   height: 90%;
   width: 90%; }
@@ -86,6 +87,7 @@ p {
   opacity: .8;
   background-color: rgb(66, 36, 12);
   height: 51.5em; 
+  width: 20%;
   position: absolute;
   z-index: 5000; }
   
@@ -105,10 +107,11 @@ h2 {
   text-align: center;
   font-size: 1vmax; }		
 #footer {
-      width: 8em;
-      font-size: 1.2em;
+      width: 80%;
+      font-size: 20px;
       position: absolute;
       bottom: 0;
       text-align: center;
-      font-weight: 700; } 
+      font-weight: 700;
+      color: rgb(118, 170, 194); } 
 }
