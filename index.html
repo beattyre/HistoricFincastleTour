@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <div class="container">
+   <div class="container">
     <div class="row">
       <div class="col-xs-12 jumbotron" id="title-bar">
         <h2>WALKING TOUR <br> OF HISTORIC FINCASTLE</h2>
@@ -27,17 +27,22 @@
     </div>
     <div class="row">
       <div class="main-page">
-      <div  class="col-xs-3" id="sidebar">
-        <div class="sidebar-header"><h3>Stop Description<h3></h3></div>
-        <div class="sidebar-stoplocation"><h3>Name of Building will go here</h3></div>
-        <div class="sidebar-picture"><img src="http://www.botetourtlawyers.com/uploads/1/0/7/5/10751275/4079796.jpg?324" style="height: 15em; width: 15em;"></div>
-        <div class="sidebar-description"><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.<br> Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.<br> Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p></div>
+        <div class="col-xs-3" id="sidebar">
+          <div class="sidebar-header">
+            <h2 style="color: rgb(118, 170, 194);">Stop Description</h2></div>
+          <div class="sidebar-stoplocation">
+            <h4>Name of Building will go here</h4></div>
+          <div class="sidebar-picture"><img src="http://www.botetourtlawyers.com/uploads/1/0/7/5/10751275/4079796.jpg?324" id="location-picture"></div>
+          <div class="sidebar-description">
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.<br> Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.<br> Aenean ultricies
+              mi vitae est. Mauris placerat eleifend leo.</p>
+          </div>
+        </div>
+        <div id="map" class="col-xs-9 row-height map-border"></div>
       </div>
-      <div id="map" class="col-xs-9 row-height map-border"></div>
-      </div>
-      </div>
-      <script src="https://rawgit.com/beattyre/WebMapTest/gh-pages/historic_sites.js"></script>
     </div>
+    <script src="https://rawgit.com/beattyre/WebMapTest/gh-pages/historic_sites.js"></script>
+  </div>
   </div>
 </body>
 
