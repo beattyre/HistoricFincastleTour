@@ -22,8 +22,8 @@ $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites.geojson", f
   L.geoJson(data, {
     onEachFeature: function onClick(e){
   $("#location").replaceText(feature.properties.Stop_No);
-  $("#header").replaceWith(feature.properties.name);
-  $(".sidebar-description").replaceWith(feature.properties.Desc);
+  $("#header").replaceText(feature.properties.name);
+  $(".sidebar-description").replaceText(feature.properties.Desc);
 })
 }
  }).addTo(map)});
