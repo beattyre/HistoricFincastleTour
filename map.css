@@ -12,20 +12,20 @@
   text-transform: capitalize;
   color: rgb(190, 177, 130);
   text-align: left;
-  font-size: 1em;
+  font-size: 1.5vmax;
   font-weight: 700; }		
  #header {
   text-transform: uppercase;
   text-align: left;
   color: rgb(118, 170, 194);
   font-family: 'Montserrat', sans-serif;
-  font-size: 2em;
+  font-size: 2.75vmax
   font-weight: 700; }
 #location-picture{
   width: 100%; }
 p {
   color: rgb(190,177,130);
-  font-size: 1em; }
+  font-size: 1.5vmax; }
 .row-height{
   height: 95vmax;}
 }
@@ -93,4 +93,3 @@ h2 {
   text-align: left;
   font-size: 1.25vmax; }		
 }
-
