@@ -20,24 +20,18 @@ initmap();
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites.geojson", function(data) {
   L.geoJson(data, {
     onEachFeature: function(feature, layer){
-     layer.bindPopup("<br><b>Stop Number: </b>" + feature.properties.Stop_No + "<br><b>Building Name: </b>" + feature.properties.name + "<br><b>Building History: </b>" + feature.properties.Desc)
+     var stop_no = features.properties.Stop_No,
+     var bldg = features.properties.name,
+     var desc = features.properties.Desc
 }
  }).addTo(map)});
 
-  map.zoomControl.setPosition('bottomright');
-map.locate({setView: true, maxZoom: 18});
-function onLocationFound(e) {
-    var radius = e.accuracy / 2;
-
-    L.marker(e.latlng).addTo(map)
-        .bindPopup("You are within " + radius + " meters from this point").openPopup();
-
-    L.circle(e.latlng, radius).addTo(map);
+function onClick(e){
+  $(#location).replaceWith(stop_no);
+  $(#header).replaceWith(bldg);
+  $(.sidebar-description).replaceWith(desc);
 }
 
-map.on('locationfound', onLocationFound);
-function onLocationError(e) {
-    alert(e.message);
-}
+map.on('click', onClick);
 
-map.on('locationerror', onLocationError);
+map.zoomControl.setPosition('bottomright');
