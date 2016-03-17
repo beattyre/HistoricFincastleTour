@@ -21,11 +21,12 @@ $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites.geojson", f
   L.geoJson(data).addTo(map)});
 
 
-
-map.on('click', function onClick(e){
+function onClick(e){
   $("#location").replaceWith(e.data.feature.properties.Stop_No);
   $("#header").replaceWith(e.data.feature.properties.name);
   $(".sidebar-description").replaceWith(e.data.feature.properties.Desc);
-});
+};
+
+map.on('click', onClick);
 
 map.zoomControl.setPosition('bottomright');
