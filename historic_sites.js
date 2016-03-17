@@ -23,4 +23,21 @@ $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites.geojson", f
      layer.bindPopup("<br><b>Stop Number: </b>" + feature.properties.Stop_No + "<br><b>Building Name: </b>" + feature.properties.name + "<br><b>Building History: </b>" + feature.properties.Desc)
 }
  }).addTo(map)});
-map.zoomControl.setPosition('bottomright');
+
+  map.zoomControl.setPosition('bottomright');
+map.locate({setView: true, maxZoom: 18});
+function onLocationFound(e) {
+    var radius = e.accuracy / 2;
+
+    L.marker(e.latlng).addTo(map)
+        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+    L.circle(e.latlng, radius).addTo(map);
+}
+
+map.on('locationfound', onLocationFound);
+function onLocationError(e) {
+    alert(e.message);
+}
+
+map.on('locationerror', onLocationError);
