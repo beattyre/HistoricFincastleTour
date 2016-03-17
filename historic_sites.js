@@ -27,6 +27,7 @@ map.on('click', function onClick(e){
   $("#location").replace(feature.properties.Stop_No);
   $("#header").replace(feature.properties.name);
   $(".sidebar-description").replace(feature.properties.Desc);
+  console.log('You clicked on a marker');
 });
 
 map.zoomControl.setPosition('bottomright');
