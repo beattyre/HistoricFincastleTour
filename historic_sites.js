@@ -20,9 +20,9 @@ initmap();
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites.geojson", function(data) {
   L.geoJson(data, {
     onEachFeature: function(feature, layer){
-     var stop_no = features.properties.Stop_No;
-     var bldg = features.properties.name;
-     var desc = features.properties.Desc;
+     var stop_no = features.properties.Stop_No
+     var bldg = features.properties.name
+     var desc = features.properties.Desc
 }
  }).addTo(map)});
 
