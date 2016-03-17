@@ -21,16 +21,16 @@ initmap();
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites.geojson", function(data) {
   L.geoJson(data, {
     onEachFeature: function(feature, layer){
-     var stop_no = features.properties.Stop_No;
-     var bldg = features.properties.name;
-     var desc = features.properties.Desc;
+     var stop_no = feature.properties.Stop_No;
+     var bldg = feature.properties.name;
+     var desc = feature.properties.Desc;
 }
  }).addTo(map)});
 
 function onClick(e){
-  $("#location").replaceWith("stop_no");
-  $("#header").replaceWith("bldg");
-  $(".sidebar-description").replaceWith("desc");
+  $("#location").replaceText(stop_no);
+  $("#header").replaceWith(bldg);
+  $(".sidebar-description").replaceWith(desc);
 }
 
 map.on('click', onClick);
