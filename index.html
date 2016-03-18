@@ -176,7 +176,7 @@ var someFeatures = {
 ]
 };
 
-L.geoJson(data, {
+L.geoJson(someFeatures, {
     onEachFeature: function(feature, layer){
      layer.bindPopup("<br><b>Stop Number: </b>" + feature.properties.Stop_No + "<br><b>Building Name: </b>" + feature.properties.name + "<br><b>Building History: </b>" + feature.properties.Desc)
 }
