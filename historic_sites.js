@@ -25,9 +25,9 @@ var bldg = features.properties.name;
 var desc = features.properties.Desc;
 
 function onClick(e){
-  $(#location).replaceWith(stop_no);
-  $(#header).replaceWith(bldg);
-  $(.sidebar-description).replaceWith(desc);
+  $(#location).replaceWith(stop_no),
+  $(#header).replaceWith(bldg),
+  $(.sidebar-description).replaceWith(desc),
 }
 
 map.on('click', onClick);
