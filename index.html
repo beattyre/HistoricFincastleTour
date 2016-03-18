@@ -14,11 +14,11 @@
  <link href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" rel="stylesheet" type='text/css'>
  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel='stylesheet' type="text/css">
- <link href="https://cdn.rawgit.com/beattyre/WebMapTest/gh-pages/map.css" rel="stylesheet" type='text/css'>
+<!--  <link href="https://cdn.rawgit.com/beattyre/WebMapTest/gh-pages/map.css" rel="stylesheet" type='text/css'> -->
  <link href='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.css' rel='stylesheet' type='text/css'>
 </head>
 <style>
- /* @media (max-width:990px) {
+@media (max-width:990px) {
 .container {
   border: 2.5px solid rgb(190, 177, 130); }
 #sidebar {
@@ -54,11 +54,11 @@ p {
 .container {
   border: 5px solid rgb(190, 177, 130); }
   
-#title-bar {
+/* #title-bar {
   opacity: .8;
   background-color: rgb(66, 36, 12);
   height: 150px;
-} 
+} */
 
 #location-picture{
   height: 90%;
@@ -113,7 +113,6 @@ h2 {
   font-size: 1.25vmax; }		
 }
 
-*/
 </style>
 <body>
 <div class="container col-xs-12">
@@ -132,8 +131,8 @@ h2 {
       <div id="map" class="col-xs-12 row-height map-border"></div>
     </div>
 
-  <script src="https://cdn.rawgit.com/beattyre/WebMapTest/gh-pages/historic_sites.js"></script>
-    <!-- <script>
+  <!-- <script src="https://cdn.rawgit.com/beattyre/WebMapTest/gh-pages/historic_sites.js"></script> -->
+    <script>
       var map;
 
 function initmap() {
@@ -191,7 +190,7 @@ L.geoJson(someFeatures, {
 }
  }).addTo(map)}); */
 map.zoomControl.setPosition('bottomright');
-    </script> -->
+    </script>
   </div>
   </div>
 </html>
