@@ -23,7 +23,7 @@ $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites.geojson", f
     layer.on({
         click: function populate() {
             document.getElementById('#location').innerHTML = feature.properties.Stop_No;
-            document.getElementById('header').innerHTML = feature.properties.name;
+            document.getElementById('#header').innerHTML = feature.properties.name;
             document.getElementById('.sidebar-description').innerHTML = feature.properties.Desc;
         }
     });
