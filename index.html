@@ -122,7 +122,7 @@ h2 {
           <div class="sidebar-stoplocation" id="location">Stop Number: ###</div>
           <div class="sidebar-header" id="header">Name of Building</div>
           <div class="sidebar-picture"><img src="http://www.botetourtlawyers.com/uploads/1/0/7/5/10751275/4079796.jpg?324" id="location-picture"></div>
-          <div class="sidebar-description">
+          <div class="sidebar-description" id="description">
             <p><i>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.<br> Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.<br> Aenean ultricies
               mi vitae est. Mauris placerat eleifend leo.</i></p>
           </div>
@@ -156,9 +156,9 @@ initmap();
 function onEachFeature(feature, layer) {
   layer.on({
     click: function populate() {
-      document.getElementById('#location').innerHTML = feature.properties.Stop_No;
-      document.getElementById('#header').innerHTML = feature.properties.name;
-      document.getElementById('.sidebar-description').innerHTML = feature.properties.Desc;
+      document.getElementById('location').innerHTML = feature.properties.Stop_No;
+      document.getElementById('header').innerHTML = feature.properties.name;
+      document.getElementById('description').innerHTML = feature.properties.Desc;
     }
   })
 };
