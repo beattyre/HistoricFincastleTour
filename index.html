@@ -166,8 +166,8 @@ function onEachFeature(feature, layer) {
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites.geojson", function(data) {
   L.geoJson(data, {
     onEachFeature: onEachFeature
-  });
-}).addTo(map);
+  }).addTo(map);
+});
 
 map.zoomControl.setPosition('bottomright');
     </script>
