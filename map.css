@@ -93,3 +93,11 @@ h2 {
   text-align: left;
   font-size: 1.25vmax; }		
 }
+
+#description {
+  font-family: 'Monterserrat', sans-serif;
+  font-weight: 700;
+  color: rgb(118, 170, 194);
+  text-align: left;
+  font-size: 1.25vmax;
+}
