@@ -19,7 +19,7 @@ initmap();
 
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites.geojson", function(data) {
   L.geoJson(data, {
-    onEachFeature: function onClick(e) {
+    function onEachFeature(feature, layer) {
       $("#location").replaceText(feature.properties.Stop_No);
       $("#header").replaceText(feature.properties.name);
       $(".sidebar-description").replaceText(feature.properties.Desc);
