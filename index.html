@@ -156,8 +156,8 @@ initmap();
 function onEachFeature(feature, layer) {
   layer.on({
     click: function populate() {
-      document.getElementById('location').innerHTML = feature.properties.Stop_No;
-      document.getElementById('header').innerHTML = feature.properties.name;
+      document.getElementById('location').innerHTML = "Stop Number: " + feature.properties.Stop_No;
+      document.getElementById('header').innerHTML = "Building Name: " + feature.properties.name;
       document.getElementById('description').innerHTML = feature.properties.Desc;
     }
   })
