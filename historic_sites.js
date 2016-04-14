@@ -30,4 +30,3 @@ $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites.geojson", f
 map.on('click', onClick);
 
 map.zoomControl.setPosition('bottomright');
- }).addTo(map)});
