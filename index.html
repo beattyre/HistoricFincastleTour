@@ -170,7 +170,7 @@ function onEachFeature(feature, layer) {
   layer.on({
     click: function populate() {
       document.getElementById('location').innerHTML = feature.properties.Stop_No;
-      document.getElementById('header').innerHTML = "<p style="font-weight:400;">Building Name: "</p> + feature.properties.name;
+      document.getElementById('header').innerHTML = "<p style='font-weight:400;'>Building Name: "</p> + feature.properties.name;
       document.getElementById('description').innerHTML = feature.properties.Desc;
     }
   })
