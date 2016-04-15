@@ -132,6 +132,7 @@ h2 {
       <div class="main-page">
         <div class="col-xs-3" id="sidebar">
           <div class="sidebar-stoplocation">
+            <p>Stop Number: </p>
             <p id="location"></p></div>
           <div class="sidebar-header" id="header">Walking Tour of Historic Fincastle</div>
           <div class="sidebar-picture"><img src="http://www.botetourtlawyers.com/uploads/1/0/7/5/10751275/4079796.jpg?324" id="location-picture"></div>
@@ -168,8 +169,8 @@ initmap();
 function onEachFeature(feature, layer) {
   layer.on({
     click: function populate() {
-      document.getElementById('location').innerHTML = "Stop Number: " + feature.properties.Stop_No;
-      document.getElementById('header').innerHTML = "Building Name: " + feature.properties.name;
+      document.getElementById('location').innerHTML = feature.properties.Stop_No;
+      document.getElementById('header').innerHTML = <style="font-weight:400;">"Building Name: "</style> + feature.properties.name;
       document.getElementById('description').innerHTML = feature.properties.Desc;
     }
   })
