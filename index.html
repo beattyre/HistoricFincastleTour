@@ -106,7 +106,7 @@
   margin: 15px, 10px, 15px, 5px;
   padding: 5px 5px 5px 5px;
   font-style: italic;
-  font-size: 1.25vmax; 
+  font-size: .75vmax; 
   font-weight: 400; }
   
 #sidebar {
@@ -180,7 +180,7 @@ initmap();
 function onEachFeature(feature, layer) {
   layer.on({
     click: function populate() {
-      document.getElementById('location').innerHTML = "Stop Number:" + feature.properties.Stop_No;
+      document.getElementById('location').innerHTML = "Stop Number: " + feature.properties.Stop_No;
       document.getElementById('header').innerHTML = "<p id='BuildingHeader'>Building Name: </p>" + feature.properties.name;
       document.getElementById('description').innerHTML = feature.properties.Desc;
     }
