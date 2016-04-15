@@ -1,5 +1,4 @@
 var map;
-
 function initmap() {
   map = new L.map('map');
   // Add basemap from OSM
@@ -11,24 +10,22 @@ function initmap() {
     attribution: osmAttributes,
     zoomControl: true
   });
-
   map.setView(new L.LatLng(37.499, -79.878), 16);
   map.addLayer(osm);
 };
 initmap();
-
+function onEachFeature(feature, layer) {
+  layer.on({
+    click: function populate() {
+      document.getElementById('location').innerHTML = "Stop Number: " + feature.properties.Stop_No;
+      document.getElementById('header').innerHTML = "<p id='BuildingHeader'>Building Name: </p>" + feature.properties.name;
+      document.getElementById('description').innerHTML = feature.properties.Desc;
+    }
+  })
+};
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites.geojson", function(data) {
   L.geoJson(data, {
-  function onEachFeature(feature, layer) {
-    layer.on({
-        click: function populate() {
-            document.getElementById('#location').innerHTML = feature.properties.Stop_No;
-            document.getElementById('#header').innerHTML = feature.properties.name;
-            document.getElementById('.sidebar-description').innerHTML = feature.properties.Desc;
-        }
-    });
-}
-  }).addTo(map)
+    onEachFeature: onEachFeature
+  }).addTo(map);
 });
-
 map.zoomControl.setPosition('bottomright');
