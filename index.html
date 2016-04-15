@@ -45,7 +45,13 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 2.75vmax
   font-weight: 700; }
-  
+
+#BuildingHeader {
+  font-size: 1.25vmax;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
 #location-picture{
   width: 100%; }
   
@@ -87,6 +93,12 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 2vmax;
   font-weight: 700; }
+
+#BuildingHeader {
+  font-size: 1.25vmax;
+  font-weight: 400;
+  text-transform: capitalize;
+}
   
 #description {
   font-family: 'Montserrat', sans-serif;
@@ -170,7 +182,7 @@ function onEachFeature(feature, layer) {
   layer.on({
     click: function populate() {
       document.getElementById('location').innerHTML = feature.properties.Stop_No;
-      document.getElementById('header').innerHTML = "<p style='font-weight:400;'>Building Name: </p>" + feature.properties.name;
+      document.getElementById('header').innerHTML = "<p id="BuildingHeader">Building Name: </p>" + feature.properties.name;
       document.getElementById('description').innerHTML = feature.properties.Desc;
     }
   })
