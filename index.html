@@ -178,6 +178,15 @@ function onEachFeature(feature, layer) {
 };
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_50pts.geojson", function(data) {
   L.geoJson(data, {
+    style: function(feature){
+      var fillColor,
+        century = feature.properties.century;
+        if (density = 1) fillColor = "#deebf7";
+        else if (density = 2) fillColor = "#9ecae1";
+        else if (density = 3) fillColor = "#3182bd";
+        else fillColor = "#ffffff" //no data;
+        return {color: "#999", weight: 1, fillColor: fillColor, fillOpacity: .8};
+    },
     onEachFeature: onEachFeature
   }).addTo(map);
 });
