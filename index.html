@@ -45,13 +45,11 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 2.75vmax
   font-weight: 700; }
-
 #BuildingHeader {
   font-size: 1.25vmax;
   font-weight: 400;
   text-transform: capitalize;
 }
-
 #location-picture{
   width: 100%; }
   
@@ -67,7 +65,6 @@
 .row-height{
   height: 95vmax;}
 }
-
 @media (min-width:990px) {
 .container {
   border: 5px solid rgb(190, 177, 130); }
@@ -77,7 +74,6 @@
   background-color: rgb(66, 36, 12);
   height: 150px;
 } */
-
 #location-picture{
   height: 90%;
   width: 90%; }
@@ -93,7 +89,6 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 2vmax;
   font-weight: 700; }
-
 #BuildingHeader {
   font-size: 1.25vmax;
   font-weight: 400;
@@ -128,7 +123,6 @@ h2 {
   font-size: 2.5em;
   position: top;
   margin-top: 30px; }
-
 #location {
   text-transform: capitalize;
   font-family: 'Monterserrat', sans-serif;
@@ -157,76 +151,36 @@ h2 {
 
 <!-- <script src="https://cdn.rawgit.com/beattyre/WebMapTest/gh-pages/historic_sites.js"></script> -->
 <script>
-
-// Create map variable
 var map;
-
-// create 'initmap' function
 function initmap() {
-  // Create map
   map = new L.map('map');
-  // Add basemap from OSM [Hot STYLE] to map
+  // Add basemap from OSM
   var osmHot = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-  // Define source attributes
   var osmAttributes = 'Map Data @ <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>';
-  // Set tile attributes
   var osm = new L.tileLayer(osmHot, {
     minZoom: 15,
     maxZoom: 18,
     attribution: osmAttributes,
     zoomControl: true
   });
-  // Define default extent
   map.setView(new L.LatLng(37.499, -79.878), 16);
   map.addLayer(osm);
 };
-
-
-// Perform 'initmap' function
 initmap();
-
-// Define 'onEachFeature' function that prompts the update of the sidebar information on a mouseclick event
-// Based on the data stored in the geoJSON feature properties
 function onEachFeature(feature, layer) {
-  // Begin 'on' event
   layer.on({
-	// On 'mouseclick' trigger the creation of populate function
     click: function populate() {
-	  // Direct javascript what to do {update HTML element based on feature properties}
       document.getElementById('location').innerHTML = "Stop Number: " + feature.properties.Stop_No;
       document.getElementById('header').innerHTML = "<p id='BuildingHeader'>Building Name: </p>" + feature.properties.name;
       document.getElementById('description').innerHTML = feature.properties.Desc;
-	  
     }
-	
   })
 };
-
-// Link to geoJSON layer
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_50pts.geojson", function(data) {
   L.geoJson(data, {
-	// onEachFeature attribute triggers 'onEachFeature' function
     onEachFeature: onEachFeature
-	// Add layer to the map element
   }).addTo(map);
 });
-
-map.locate({setView: true, maxZoom: 16});
-
-function onLocationFound(e) {
-  var radius: e.accuracy / 2;
-  
-  L.marker(e.latlng).addTo(map)
-	.bindPopup("You are here").openPopup();	
-}
-
-function onLocationError(e) {
-	alert.(e.message);
-}
-map.on('locationfound', onLocationFound);
-map.on('locationerror', onLocationError);
-
-// Move "Zoom in (+)/Zoom Out (-)" to bottom right 
 map.zoomControl.setPosition('bottomright');
     </script>
   </div>
