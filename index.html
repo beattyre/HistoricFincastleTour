@@ -190,7 +190,7 @@ function getValue(feature) {
 function style(feature) {
 	return {
 		"stroke": false,
-		"fillColor": fillColor,
+		"fillColor": getValue(feature),
 		"fillOpacity": 1,
 		"fill": true
 	};
