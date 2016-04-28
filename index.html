@@ -214,7 +214,7 @@ $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_50pts.geojs
 map.locate({setView: true, maxZoom: 16});
 
 function onLocationFound(e) {
-  var radius: e.accuracy/10;
+  var radius: e.accuracy / 2;
   
   L.marker(e.latlng).addTo(map)
 	.bindPopup("You are here").openPopup();	
