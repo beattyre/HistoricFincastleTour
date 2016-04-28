@@ -178,10 +178,11 @@ function onEachFeature(feature, layer) {
 };
 
 function getValue(x) {
-	return x = 1 ? "#deebf7":
-	       x = 2 ? "#9ecae1":
-	       x = 3 ? "#3182bd":
-	       	       "#FFEDA0";
+	   if (x = 1) fillColor: "#deebf7";
+	   else if (x = 2) fillColor: "#9ecae1";
+	   else if (x = 3) fillColor: "3182hbd";
+	   else fillColor = "#ffffff";
+	 return fillColor
 }
 
 function style(feature) {
