@@ -177,20 +177,18 @@ function onEachFeature(feature, layer) {
   })
 };
 
-function getValue(feature) {
-	var fillColor,
-	   century = feature.properties.century
-	   if (century = 1) fillColor: "#deebf7";
-	   else if (century = 2) fillColor: "#9ecae1";
-	   else if (century = 3) fillColor: "3182hbd";
-	   else fillColor = "#ffffff";
-	 return fillColor;
-}
-
 function style(feature) {
 	return {
 		"color": "#fff",
-		"fillColor": getValue(feature),
+		"fillColor": function getValue(feature) {
+			var fillColor,
+			  century = feature.properties.century
+			  if (century = 1) fillColor: "#deebf7";
+			  else if (century = 2) fillColor: "#9ecae1";
+	   		  else if (century = 3) fillColor: "3182hbd";
+			  else fillColor = "#ffffff";
+			return fillColor;
+		}
 		"fillOpacity": .4,
 		"fill": true
 	};
