@@ -179,6 +179,7 @@ function onEachFeature(feature, layer) {
 function style(feature) {
 	return {
 		"color": "#fff",
+		"fill": true,
 		"fillColor": function getValue(feature) {
 			var fillColor,
 			  century = feature.properties.century;
@@ -187,8 +188,8 @@ function style(feature) {
 	   		else if (century == 3) fillColor = "rgb(49,130,189)";
 			return fillColor;
 		},
-		"fillOpacity": .75,
-		"fill": true
+		"fillOpacity": .75
+
 	};
 }
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_50pts.geojson", function(data) {
