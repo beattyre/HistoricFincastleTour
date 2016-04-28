@@ -186,8 +186,7 @@ function getValue(x) {
 
 function style(feature) {
 	return {
-		"color": getValue(feature.properties.century),
-		"stroke": false
+		"color": getValue(feature.properties.century)
 	};
 }
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_50pts.geojson", function(data) {
