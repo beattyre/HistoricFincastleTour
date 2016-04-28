@@ -158,41 +158,93 @@ h2 {
 <!-- <script src="https://cdn.rawgit.com/beattyre/WebMapTest/gh-pages/historic_sites.js"></script> -->
 <script>
 
+// Create map variable
 var map;
 
+// create 'initmap' function
 function initmap() {
+  // Create map
   map = new L.map('map');
-  // Add basemap from OSM
+  // Add basemap from OSM [Hot STYLE] to map
   var osmHot = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  // Define source attributes
   var osmAttributes = 'Map Data @ <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>';
+  // Set tile attributes
   var osm = new L.tileLayer(osmHot, {
     minZoom: 15,
     maxZoom: 18,
     attribution: osmAttributes,
     zoomControl: true
   });
-
+  // Define default extent
   map.setView(new L.LatLng(37.499, -79.878), 16);
   map.addLayer(osm);
 };
+
+
+// Perform 'initmap' function
 initmap();
 
+function highlightFeature(e) {
+	var layer = e.target;
+	
+	layer.setStyle({
+		weight
+	})
+}
+
+// Define 'onEachFeature' function that prompts the update of the sidebar information on a mouseclick event
+// Based on the data stored in the geoJSON feature properties
 function onEachFeature(feature, layer) {
+  // Begin 'on' event
   layer.on({
+	// On 'mouseclick' trigger the creation of populate function
     click: function populate() {
+	  // Direct javascript what to do {update HTML element based on feature properties}
       document.getElementById('location').innerHTML = "Stop Number: " + feature.properties.Stop_No;
       document.getElementById('header').innerHTML = "<p id='BuildingHeader'>Building Name: </p>" + feature.properties.name;
       document.getElementById('description').innerHTML = feature.properties.Desc;
+	  
     }
+	
   })
 };
 
+var geojsonMarkerOptions = {
+	radius: 8,
+	fillColor: "ff7800",
+	color: "#000",
+	weight: 1, 
+	opacity: 1,
+	fillOpacity: 0.8;
+};
+
+// Link to geoJSON layer
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_50pts.geojson", function(data) {
   L.geoJson(data, {
+	pointToLayer:   
+	// onEachFeature attribute triggers 'onEachFeature' function
     onEachFeature: onEachFeature
+	// Add layer to the map element
   }).addTo(map);
 });
 
+map.locate({setView: true, maxZoom: 16});
+
+function onLocationFound(e) {
+  var radius: e.accuracy/10;
+  
+  L.marker(e.latlng).addTo(map)
+	.bindPopup("You are here").openPopup();	
+}
+
+function onLocationError(e) {
+	alert.(e.message);
+}
+map.on('locationfound', onLocationFound);
+map.on('locationerror', onLocationError);
+
+// Move "Zoom in (+)/Zoom Out (-)" to bottom right 
 map.zoomControl.setPosition('bottomright');
     </script>
   </div>
