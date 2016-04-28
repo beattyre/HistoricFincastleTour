@@ -177,18 +177,20 @@ function onEachFeature(feature, layer) {
   })
 };
 
-function getValue(x) {
-	   if (x = 1) fillColor: "#deebf7";
-	   else if (x = 2) fillColor: "#9ecae1";
-	   else if (x = 3) fillColor: "3182hbd";
+function getValue(feature) {
+	var fillColor,
+	   century = feature.properties.century
+	   if (century = 1) fillColor: "#deebf7";
+	   else if (century = 2) fillColor: "#9ecae1";
+	   else if (century = 3) fillColor: "3182hbd";
 	   else fillColor = "#ffffff";
-	 return fillColor
+	 return fillColor;
 }
 
 function style(feature) {
 	return {
 		"stroke": false,
-		"fillColor": getValue(feature.properties.century),
+		"fillColor": fillColor,
 		"fillOpacity": 1,
 		"fill": true
 	};
