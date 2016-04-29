@@ -183,13 +183,13 @@ function style(feature) {
 		"fillColor": function getValue(feature) {
 			var fillColor,
 			  century = feature.properties.century;
-			if (century = 1) {
+			if (century == 1) {
 				fillColor = "rgb(222,235,247)";
 			}
-			else if (century = 2) {
+			else if (century == 2) {
 				fillColor = "rgb(158,202,225)";
 			}
-	   		else if (century = 3) {
+	   		else if (century == 3) {
 	   			fillColor = "rgb(49,130,189)";
 	   		}
 			return fillColor;
