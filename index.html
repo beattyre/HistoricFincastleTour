@@ -184,13 +184,14 @@ function style(feature) {
 			var fillColor,
 			  century = feature.properties.century;
 			if (century === 1) {
-				return fillColor = "rgb(222,235,247)";
+				fillColor = "rgb(222,235,247)";
 			}
 			else if (century === 2) {
-				return fillColor = "rgb(158,202,225)";
+				fillColor = "rgb(158,202,225)";
 			}
 	   		else if (century === 3) {
-	   			return fillColor = "rgb(49,130,189)";
+	   			fillColor = "rgb(49,130,189)";
+	   		return fillColor;
 	   		}
 		},
 		"fillOpacity": .75
