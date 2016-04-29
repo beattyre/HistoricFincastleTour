@@ -201,7 +201,7 @@ function style(feature) {
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_50pts.geojson", function(data) {
   L.geoJson(data, {
     pointToLayer: function(feature, latlng){
-      return L.circleMarker(latlng, style(feature));
+      return L.circleMarker(latlng, {style: style(feature)});
     },
     onEachFeature: onEachFeature
   }).addTo(map);
