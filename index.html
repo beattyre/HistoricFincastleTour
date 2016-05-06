@@ -193,7 +193,7 @@ function style(feature) {
 		"fillOpacity": 0.7
 	};
 }
-/* $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_50pts.geojson", function(data) {
+/* $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geojson", function(data) {
   var pointIcon = L.icon({
   	iconUrl: 'https://cdn.rawgit.com/beattyre/WebMapTest/gh-pages/circle-medblue2.png',
   	iconSize: [15,15]
@@ -207,7 +207,7 @@ function style(feature) {
   }).addTo(map);
 }); */
 
-$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_50pts.geojson", function(data) {
+$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geojson", function(data) {
   L.geoJson(data, {
     pointToLayer: function(feature, latlng){
       return L.circleMarker(latlng, {style: style(feature)});
