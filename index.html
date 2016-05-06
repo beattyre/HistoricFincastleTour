@@ -204,7 +204,7 @@ $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_50pts.geojs
   });
   L.geoJson(data, {
     pointToLayer: function(feature, latlng){
-      var marker = L.marker(latlng, {icon: pointIcon, opacity: .4});
+      var marker = L.marker(latlng, {icon: pointIcon, opacity: .8});
       return marker;
     },
     onEachFeature: onEachFeature
