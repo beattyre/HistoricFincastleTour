@@ -210,7 +210,7 @@ function style(feature) {
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geojson", function(data) {
   L.geoJson(data, {
     pointToLayer: function(feature, latlng){
-      return L.circleMarker(latlng, {style: style(feature)});
+      return L.circleMarker(latlng, {style: style});
     },
     onEachFeature: onEachFeature
   }).addTo(map);
