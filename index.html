@@ -207,7 +207,7 @@ $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_50pts.geojs
     pointToLayer: function(feature, latlng){
     	var marker = L.marker(latlng, {icon: pointIcon});
     	return marker;
-    });
+    }
     },
     onEachFeature: onEachFeature
   }).addTo(map);
