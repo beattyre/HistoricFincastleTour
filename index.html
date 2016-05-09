@@ -11,11 +11,15 @@
  <script src='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.js'></script>
  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+ <script src="https://use.fontawesome.com/ca3b747b05.js"></script>
+ <script src="js/leaflet.extra-markers.min.js"></script>
  <link href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" rel="stylesheet" type='text/css'>
  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel='stylesheet' type="text/css">
  <!-- <link href="https://cdn.rawgit.com/beattyre/WebMapTest/gh-pages/map.css" rel="stylesheet" type='text/css'> -->
  <link href='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.css' rel='stylesheet' type='text/css'>
+ <link rel="stylesheet" href="css/leaflet.extra-markers.min.css">
+ 
 </head>
  <style>
  
@@ -195,6 +199,23 @@ function style(feature) {
 } */
 
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geojson", function(data) {
+  var numberIcon = L.ExtraMarkers.icon({
+  	icon: 'fa-number',
+  	markerColor: '#72b2d7',
+  	shape: 'circle',
+  	prefix: 'fa',
+  	number: feature.properties.Stop_No
+  });
+  L.geoJson(data, {
+    pointToLayer: function(feature, latlng){
+      var marker = L.marker(latlng, {icon: numberIcon});
+      return marker;
+    },
+    onEachFeature: onEachFeature
+  }).addTo(map);
+});
+
+/* $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geojson", function(data) {
   var pointIcon = L.icon({
   	iconUrl: 'https://cdn.rawgit.com/beattyre/WebMapTest/gh-pages/circle-medblue2.png',
   	iconSize: [15,15]
@@ -206,7 +227,7 @@ $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geo
     },
     onEachFeature: onEachFeature
   }).addTo(map);
-});
+}); */
 
 /* $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geojson", function(data) {
   L.geoJson(data, {
