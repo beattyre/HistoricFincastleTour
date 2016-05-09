@@ -27,13 +27,14 @@ function onEachFeature(feature, layer) {
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geojson", function(data) {
   L.geoJson(data, {
     pointToLayer: function(feature, latlng){
+    	var stopNumber = feature.properties.Stop_No
     	var numberIcon = L.ExtraMarkers.icon({
   	icon: 'fa-number',
   	markerColor: 'blue',
   	iconColor: 'white',
   	shape: 'circle',
   	prefix: 'fa',
-  	number: feature.properties.Stop_No
+  	number: stopNumber
   })
       var marker = L.marker(latlng, {icon: numberIcon});
       return marker;
@@ -42,16 +43,7 @@ $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geo
   }).addTo(map);
 });
 
-function onLocationFound(e) {
-    var radius = e.accuracy / 2;
-    L.marker(e.latlng).addTo(map)
-        .bindPopup("You are within " + radius + " meters from this point").openPopup();
-    L.circle(e.latlng, radius).addTo(map);
-}
-map.on('locationfound', onLocationFound);
-function onLocationError(e) {
-    alert(e.message);
-}
-map.on('locationerror', onLocationError);
+L.control.locate({
+	position: 'topright'
+}).addTo(map);
 map.zoomControl.setPosition('bottomright');
-    </script>
