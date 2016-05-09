@@ -201,13 +201,14 @@ function style(feature) {
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geojson", function(data) {
   L.geoJson(data, {
     pointToLayer: function(feature, latlng){
+    	var stopNumber = feature.properties.Stop_No
     	var numberIcon = L.ExtraMarkers.icon({
   	icon: 'fa-number',
   	markerColor: 'blue',
   	iconColor: 'white',
   	shape: 'circle',
   	prefix: 'fa',
-  	number: feature.properties.Stop_No
+  	number: "<style= 'font-family: /'Montserrat/', sans-serif'>" + stopNumber
   })
       var marker = L.marker(latlng, {icon: numberIcon});
       return marker;
