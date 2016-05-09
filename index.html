@@ -246,9 +246,9 @@ function onLocationFound(e) {
         .bindPopup("You are within " + radius + " meters from this point").openPopup();
     L.circle(e.latlng, radius).addTo(map);
 }
-L.control.locate({
+/* L.control.locate({
 	position: 'topright'
-}).addTo(map);
+}).addTo(map); */
 map.zoomControl.setPosition('bottomright');
     </script>
   </div>
