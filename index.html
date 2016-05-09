@@ -8,6 +8,8 @@
   <title>Walking Tour of Historic Fincastle</title>
   
   <!-- Load JS CDN's and CSS Stylesheets -->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.0/esri/css/main.css">
+<script src="https://js.arcgis.com/4.0/"></script>
  <script src='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.js'></script>
  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -246,6 +248,95 @@ function onLocationFound(e) {
         .bindPopup("You are within " + radius + " meters from this point").openPopup();
     L.circle(e.latlng, radius).addTo(map);
 }
+
+Search API Reference
+esri
+esri/core
+esri/geometry
+esri/geometry/support
+esri/identity
+esri/layers
+ElevationLayer
+FeatureLayer
+GraphicsLayer
+GroupLayer
+ImageryLayer
+Layer
+MapImageLayer
+OpenStreetMapLayer
+SceneLayer
+StreamLayer
+TileLayer
+UnknownLayer
+UnsupportedLayer
+VectorTileLayer
+WebTileLayer
+esri/layers/support
+esri/portal
+esri/renderers
+esri/renderers/support
+esri/symbols
+esri/symbols/support
+esri/tasks
+esri/tasks/support
+esri/views
+esri/views/3d
+esri/views/layers
+esri/views/ui
+esri/webmap
+esri/webscene
+esri/widgets
+Attribution
+BasemapToggle
+Compass
+Home
+Legend
+Locate
+NavigationToggle
+Popup
+Search
+Track
+Widget
+Zoom
+Class: LocateConstructors | Properties | Methods | Events
+            
+require(["esri/widgets/Locate"], function(Locate) { /* code goes here */ });
+
+          
+Inheritance: Locate  Widget
+Since: ArcGIS API for JavaScript 4.0
+Provides a simple widget that animates the View to the user's current location. By default the widget looks like the following:
+
+locate-button
+
+The Locate widget is only supported in applications that support geolocation. For additional information regarding this, visit the ArcGIS blog, Increased web API security in Google Chrome.
+If the spatial reference of the View is not Web Mercator or WGS84, the user's location must be reprojected to match the view's spatial reference. This is done with the GeometryService URL referenced in esriConfig. You can optionally set the geometryServiceUrl in esriConfig to your own GeometryService instance. If not specified, however, it will refer to the service hosted in the default portal instance. See esriConfig.geometryServiceUrl for an example.
+
+You can use the view's DefaultUI to add widgets to the view's user interface via the ui property on the view. The snippet below demonstrates this.
+
+For information about gaining full control of widget styles, see the ​Styling topic.
+See also:
+Locate.js (widget view)
+button.css
+button.scss
+Sample - locate widget
+LocateViewModel
+View.ui
+DefaultUI
+Example
+
+// This graphics layer will store the graphic used to display the user's location
+var gl = new GraphicsLayer();
+map.add(gl);
+
+var locateWidget = new Locate({
+  view: view,   // Attaches the Locate button to the view
+  graphicsLayer: gl  // The layer the locate graphic is assigned to
+});
+// startup() must be called to start the widget
+locateWidget.startup();
+
+view.ui.add(locateWidget, "top-right");
 /* L.control.locate({
 	position: 'topright'
 }).addTo(map); */
