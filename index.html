@@ -183,22 +183,7 @@ function onEachFeature(feature, layer) {
     }
   })
 };
-/* function getColor(y){
-	return y > 1871 ? '#08306b' :
-	       y > 1846 ? '#2878b8' :
-	       y > 1820 ? '#72b2d7' :
-	       y > 1795 ? '#c7dcef' :
-	       y > 1770 ? '#f7fbff' :
-	       		  '#ffffff';
-}
-function style(feature) {
-	return {
-		"color": "#fff",
-		"fill": true,
-		"fillColor": getColor(feature.properties.yr_built),
-		"fillOpacity": 0.7
-	};
-} */
+
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geojson", function(data) {
   L.geoJson(data, {
     pointToLayer: function(feature, latlng){
@@ -217,36 +202,10 @@ $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geo
     onEachFeature: onEachFeature
   }).addTo(map);
 });
-/* $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geojson", function(data) {
-  var pointIcon = L.icon({
-  	iconUrl: 'https://cdn.rawgit.com/beattyre/WebMapTest/gh-pages/circle-medblue2.png',
-  	iconSize: [15,15]
-  });
-  L.geoJson(data, {
-    pointToLayer: function(feature, latlng){
-      var marker = L.marker(latlng, {icon: pointIcon, opacity: .8});
-      return marker;
-    },
-    onEachFeature: onEachFeature
-  }).addTo(map);
-}); */
-/* $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geojson", function(data) {
-  L.geoJson(data, {
-    pointToLayer: function(feature, latlng){
-      return L.circleMarker(latlng, {style: style});
-    },
-    onEachFeature: onEachFeature
-  }).addTo(map);
-}); */
-function onLocationFound(e) {
-    var radius = e.accuracy / 2;
-    L.marker(e.latlng).addTo(map)
-        .bindPopup("You are within " + radius + " meters from this point").openPopup();
-    L.circle(e.latlng, radius).addTo(map);
-}
-/* L.control.locate({
+
+L.control.locate({
 	position: 'topright'
-}).addTo(map); */
+}).addTo(map);
 map.zoomControl.setPosition('bottomright');
     </script>
   </div>
