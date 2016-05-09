@@ -203,7 +203,8 @@ $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geo
     pointToLayer: function(feature, latlng){
     	var numberIcon = L.ExtraMarkers.icon({
   	icon: 'fa-number',
-  	iconColor: '#72b2d7',
+  	markerColor: 'blue',
+  	iconColor: 'rgb(190,177,130)'
   	shape: 'circle',
   	prefix: 'fa',
   	number: feature.properties.Stop_No
