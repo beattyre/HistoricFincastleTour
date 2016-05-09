@@ -206,7 +206,8 @@ $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geo
   	markerColor: '#72b2d7',
   	shape: 'circle',
   	prefix: 'fa',
-  	number: feature.properties.Stop_No
+  	number: feature.properties.Stop_No,
+  	innerHTML: 'font-family: 'Monterserrat', sans-serif; font-color: rgb(66, 36, 12)'
   })
       var marker = L.marker(latlng, {icon: numberIcon});
       return marker;
