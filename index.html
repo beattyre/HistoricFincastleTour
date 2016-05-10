@@ -179,7 +179,7 @@ function onEachFeature(feature, layer) {
     click: function populate() {
       document.getElementById('location').innerHTML = feature.properties.address;
       document.getElementById('header').innerHTML = "<p id='BuildingHeader'>Building Name: </p>" + feature.properties.name;
-      document.getElementById('description').innerHTML = feature.properties.Desc;
+      document.getElementById('description').innerHTML = feature.properties.Historic_Fincastle_Desc;
     }
   })
 };
