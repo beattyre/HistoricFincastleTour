@@ -184,7 +184,7 @@ function onEachFeature(feature, layer) {
   })
 };
 
-$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geojson", function(data) {
+$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_Desc.geojson", function(data) {
   L.geoJson(data, {
     pointToLayer: function(feature, latlng){
     	var stopNumber = feature.properties.Stop_No
