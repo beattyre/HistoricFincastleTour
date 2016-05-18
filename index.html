@@ -6,21 +6,139 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Walking Tour of Historic Fincastle</title>
+  
   <!-- Load JS CDN's and CSS Stylesheets -->
  <script src='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.js'></script>
  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
  <script src="https://use.fontawesome.com/ca3b747b05.js"></script>
+ <script src="https://cdn.rawgit.com/coryasilva/Leaflet.ExtraMarkers/master/dist/js/leaflet.extra-markers.min.js"></script>
  <script src="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
  <link href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" rel="stylesheet" type='text/css'>
  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel='stylesheet' type="text/css">
+ <!-- <link href="https://cdn.rawgit.com/beattyre/WebMapTest/gh-pages/map.css" rel="stylesheet" type='text/css'> -->
  <link href='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.css' rel='stylesheet' type='text/css'>
+ <link rel="stylesheet" href="https://cdn.rawgit.com/beattyre/Leaflet.ExtraMarkers/master/dist/css/leaflet.extra-markers.min.css">
  <link rel="stylesheet" href="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.css" />
- <link rel="stylesheet" href="css/pagestyle.css">
- <link rel="stylesheet" href="css/leaflet.extra-markers.min.css">
+
  
 </head>
+ <style>
+ 
+ @media (max-width:990px) {
+.container {
+  border: 2.5px solid rgb(190, 177, 130); }
+  
+#sidebar {
+  opacity: .8;
+  background-color: rgb(66, 36, 12);
+  height: 95vmax;
+  width: 30vmax;
+  position: absolute;
+  z-index: 5000; }
+  
+#location {
+  text-transform: capitalize;
+  color: rgb(190, 177, 130);
+  text-align: left;
+  font-size: 1.25vmax;
+  font-weight: 700; }		
+  
+#header {
+  text-transform: uppercase;
+  text-align: left;
+  color: rgb(118, 170, 194);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.75vmax
+  font-weight: 700; }
+#BuildingHeader {
+  font-size: 1.25vmax;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+#location-picture{
+  width: 100%; }
+  
+#description{
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(190,177,130);
+  margin: 15px, 10px, 15px, 5px;
+  padding: 5px 5px 5px 5px;
+  font-style: italic;
+  font-size: 1.25vmax; 
+  font-weight: 400; }
+  
+.row-height{
+  height: 95vmax;}
+}
+@media (min-width:990px) {
+.container {
+  border: 5px solid rgb(190, 177, 130); }
+  
+/*#title-bar {
+  opacity: .8;
+  background-color: rgb(66, 36, 12);
+  height: 150px;
+} */
+#location-picture{
+  height: 90%;
+  width: 90%; }
+  
+.sidebar-picture {
+  margin-top: 20px;
+  margin-bottom: 30px; }
+  
+#header {
+  text-transform: uppercase;
+  text-align: left;
+  color: rgb(118, 170, 194);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2vmax;
+  font-weight: 700; }
+#BuildingHeader {
+  font-size: 1.25vmax;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+  
+#description {
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(190,177,130);
+  margin: 15px, 10px, 15px, 5px;
+  padding: 5px 5px 5px 5px;
+  font-style: italic;
+  font-size: .75vmax; 
+  font-weight: 400; }
+  
+#sidebar {
+  opacity: .8;
+  background-color: rgb(66, 36, 12);
+  height: 100%; 
+  width: 20%;
+  position: absolute;
+  z-index: 5000; }
+  
+.row-height{
+  height: 100vmin; }
+  
+h2 {
+  color: rgb(190, 177, 130);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-align: left;
+  font-size: 2.5em;
+  position: top;
+  margin-top: 30px; }
+#location {
+  text-transform: capitalize;
+  font-family: 'Monterserrat', sans-serif;
+  font-weight: 700;
+  color: rgb(190, 177, 130);
+  text-align: left;
+  font-size: 1vmax; }		
+}
+</style>
 <body>
 <div class="container col-xs-12">
     <div class="row">
@@ -39,9 +157,54 @@
     </div>
 
 <!-- <script src="https://cdn.rawgit.com/beattyre/WebMapTest/gh-pages/historic_sites.js"></script> -->
-<script src="js/map.js"></script>
-<script src="js/leaflet.extra-markers.js"></script>
-
+<script>
+var map;
+function initmap() {
+  map = new L.map('map');
+  // Add basemap from OSM
+  var osmHot = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  var osmAttributes = 'Map Data @ <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>';
+  var osm = new L.tileLayer(osmHot, {
+    minZoom: 15,
+    maxZoom: 19,
+    attribution: osmAttributes,
+    zoomControl: true
+  });
+  map.setView(new L.LatLng(37.499, -79.878), 17);
+  map.addLayer(osm);
+};
+initmap();
+function onEachFeature(feature, layer) {
+  layer.on({
+    click: function populate() {
+      document.getElementById('location').innerHTML = feature.properties.address;
+      document.getElementById('header').innerHTML = "<p id='BuildingHeader'>Building Name: </p>" + feature.properties.name;
+      document.getElementById('description').innerHTML = feature.properties.Desc;
+    }
+  })
+};
+$.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geojson", function(data) {
+  L.geoJson(data, {
+    pointToLayer: function(feature, latlng){
+    	var stopNumber = feature.properties.Stop_No
+    	var numberIcon = L.ExtraMarkers.icon({
+  	icon: 'fa-number',
+  	markerColor: 'blue',
+  	iconColor: 'white',
+  	shape: 'circle',
+  	prefix: 'fa',
+  	number: stopNumber
+  })
+      var marker = L.marker(latlng, {icon: numberIcon});
+      return marker;
+    },
+    onEachFeature: onEachFeature
+  }).addTo(map);
+});
+L.control.locate({
+	position: 'topright'
+}).addTo(map);
+map.zoomControl.setPosition('topright');
     </script>
   </div>
   </div>
