@@ -176,11 +176,12 @@ function initmap() {
 initmap();
 function onEachFeature(feature, layer) {
   layer.on({
+    var imgURL = feature.properties.IMG_URL
     click: function populate() {
       document.getElementById('location').innerHTML = feature.properties.address;
       document.getElementById('header').innerHTML = "<p id='BuildingHeader'>Building Name: </p>" + feature.properties.name;
       document.getElementById('description').innerHTML = feature.properties.Desc
-      document.getElementById('location-picture').innerHTML = "<img src="feature.properties.IMG_URL"></img>";
+      document.getElementById('location-picture').innerHTML = "<img src= imgURL></img>";
     }
   })
 };
