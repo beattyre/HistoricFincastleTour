@@ -182,11 +182,6 @@ function onEachFeature(feature, layer) {
       document.getElementById('header').innerHTML = "<p id='BuildingHeader'>Building Name: </p>" + feature.properties.name;
       document.getElementById('description').innerHTML = feature.properties.Desc
     }
-    $('#picture').on({
-    	'click': function(){
-    		$('#picture').attr('src', imgURL)
-    	}
-    })
   })
 };
 
