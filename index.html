@@ -57,8 +57,8 @@
   font-weight: 400;
   text-transform: capitalize;
 }
-#picture{
-  width: 80%; }
+#location-picture{
+  width: 100%; }
   
 #description{
   font-family: 'Montserrat', sans-serif;
@@ -81,9 +81,9 @@
   background-color: rgb(66, 36, 12);
   height: 150px;
 } */
-#picture{
+#location-picture{
   height: 90%;
-  width: 80%; }
+  width: 90%; }
   
 .sidebar-picture {
   margin-top: 20px;
@@ -147,7 +147,7 @@ h2 {
           <div class="sidebar-stoplocation">
             <p id="location"></p></div>
           <div class="sidebar-header" id="header">Walking Tour of Historic Fincastle</div>
-          <div class="sidebar-picture" id="picture"><img src="http://www.botetourtlawyers.com/uploads/1/0/7/5/10751275/4079796.jpg?324"></div>
+          <div class="sidebar-picture"><img src="http://www.botetourtlawyers.com/uploads/1/0/7/5/10751275/4079796.jpg?324" id="location-picture"></div>
           <div class="sidebar-description" id="description">
             <p style="font-size: 1.25vmax; text-align: center;">Come explore the beautiful Historic District of Downtown Fincastle nestled in the heart of the Blue Ridge Mountains!</p>
           </div>
@@ -175,16 +175,14 @@ function initmap() {
 };
 initmap();
 function onEachFeature(feature, layer) {
-  var imgURL = feature.properties.IMG_URL
   layer.on({
     click: function populate() {
       document.getElementById('location').innerHTML = feature.properties.address;
       document.getElementById('header').innerHTML = "<p id='BuildingHeader'>Building Name: </p>" + feature.properties.name;
-      document.getElementById('description').innerHTML = feature.properties.Desc
+      document.getElementById('description').innerHTML = feature.properties.Desc;
     }
   })
 };
-
 $.getJSON("https://rawgit.com/beattyre/WebMapTest/gh-pages/TourSites_YRBuilt.geojson", function(data) {
   L.geoJson(data, {
     pointToLayer: function(feature, latlng){
