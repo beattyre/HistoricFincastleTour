@@ -180,7 +180,7 @@ function onEachFeature(feature, layer) {
       document.getElementById('location').innerHTML = feature.properties.address;
       document.getElementById('header').innerHTML = "<p id='BuildingHeader'>Building Name: </p>" + feature.properties.name;
       document.getElementById('description').innerHTML = feature.properties.Desc;
-      document.getElementById('picture').innerHTML = "<img src=" feature.properties.IMG_URL "id='location-picture'>" 
+      document.getElementById('picture').innerHTML = feature.properties.IMG_URL
     }
   })
 };
