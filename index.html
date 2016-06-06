@@ -175,8 +175,8 @@ function initmap() {
 };
 initmap();
 function onEachFeature(feature, layer) {
+  var imgURL = feature.properties.IMG_URL
   layer.on({
-    var imgURL = feature.properties.IMG_URL
     click: function populate() {
       document.getElementById('location').innerHTML = feature.properties.address;
       document.getElementById('header').innerHTML = "<p id='BuildingHeader'>Building Name: </p>" + feature.properties.name;
